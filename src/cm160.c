@@ -86,7 +86,7 @@ static void decode_frame(unsigned char *frame, struct record_data *rec)
   int volt = 230; // TODO: use the value from energy_param table (supply_voltage)
   rec->addr = 0; // TODO: don't use an harcoded addr value for the device...
   rec->year = frame[1]+2000;
-  rec->month = frame[2];
+  rec->month = frame[2] & 15; // Get only lower 4 bits because higher bits sometimes have invalid bits.
   rec->day = frame[3];
   rec->hour = frame[4];
   rec->min = frame[5];
