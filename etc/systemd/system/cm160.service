@@ -1,0 +1,17 @@
+[Unit]
+Description=CM160 server
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+Environment="install_path=/opt/eagleowl"
+Environment="main_db_name=eagleowl.db"
+Environment="stat_db_name=eagleowl_stat.db"
+WorkingDirectory=/opt/eagleowl
+ExecStart=/opt/eagleowl/cm160
+
+[Install]
+WantedBy=multi-user.target
