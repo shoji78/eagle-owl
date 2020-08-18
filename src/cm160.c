@@ -166,7 +166,8 @@ static int process_frame(int dev_id, unsigned char *frame)
       for(i=0; i<11; i++)
         printf("0x%02x - ", frame[i]);
       printf("\n");
-      return -1;
+      printf("This error will keep to be occured when it happen onece, And I don't know yet how to fix it without process restarting, so terminates the process for now.");
+      exit(1);
     }
 
     for(i=0; i<10; i++)
